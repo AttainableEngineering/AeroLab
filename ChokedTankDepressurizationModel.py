@@ -131,6 +131,16 @@ class TankDischarge:
         # Plot experimental values and construct data list for error
         plt.plot(t_z, p_pa, label = "Experimental")
         exp_data = [t_z, p_pa]
+        
+        # Plot line to determine when unchoked. NOTE if I were smart, I would make pamb a class variable and use it x2 rather than redefining. BUT IM LAZY
+        choke_count = 0
+        Pamb = 101644.99 # Pamb [Pa]
+        for ii in range(len(t_z)):
+            if Pamb/(p_pa[ii]+Pamb) < 0.5208:
+                choke_count += 1
+        plt.axvline(x=choke_count, color="k", linestyle = "--", alpha=0.3)
+            
+
 
         # Isothermal case
         iso_data = self.Isothermal()

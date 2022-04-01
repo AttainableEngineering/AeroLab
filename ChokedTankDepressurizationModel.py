@@ -61,7 +61,7 @@ class TankDischarge:
         theo_int = interp(time_theo, pres_theo, kind="cubic")
         exp_int = interp(time_exp, pres_exp, kind="cubic")
 
-        Pamb = 101400 # Pamb [Pa]                               NOTE NEED TO UPDATE AMBIENT TEMPERATURE 
+        Pamb = 101644.99 # Pamb [Pa]                               NOTE NEED TO UPDATE AMBIENT TEMPERATURE 
         # Set bounds on choked condition
         index = 0
         for pres in pres_exp:
@@ -302,9 +302,9 @@ if __name__ == "__main__":
     sheet2 = '0.094'
     sheet3 = '0.125'
 
-    d1 = float(sheet1)
-    d2 = float(sheet2)
-    d3 = float(sheet3)
+    d1 = 1.16
+    d2 = 3/32
+    d3 = 1/8
 
 
     small_nozz = TankDischarge(d1, sheet1)
